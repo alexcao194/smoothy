@@ -10,8 +10,7 @@ class GetSong implements UseCase<SongEntity, Params> {
   final Repositories repositories;
   @override
   Future<Either<Failure, SongEntity>> call(Params params) async {
-    var c =  await repositories.getSong(params.id);
-    return c;
+    return await repositories.getSong(params.id);
   }
 }
 

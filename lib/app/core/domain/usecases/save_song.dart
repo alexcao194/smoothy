@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:smoothy/app/core/data/models/song_model.dart';
 import 'package:smoothy/app/core/domain/repositories/repositories.dart';
-import 'package:smoothy/app/core/domain/usecases/get_song.dart';
 import 'package:smoothy/core/error/failures.dart';
 import 'package:smoothy/core/usecases/usecase.dart';
 

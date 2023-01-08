@@ -16,6 +16,8 @@ final sl = GetIt.instance;
 
 Future<void> init() async {
 
+  // Bloc
+
   // usecase
   sl.registerLazySingleton(() => GetSong(repositories: sl()));
   sl.registerLazySingleton(() => SaveSong(repositories: sl()));
