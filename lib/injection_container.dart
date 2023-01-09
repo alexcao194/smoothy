@@ -7,7 +7,6 @@ import 'package:smoothy/app/core/data/datasource/local_data.dart';
 import 'package:smoothy/app/core/data/datasource/remote_data.dart';
 import 'package:smoothy/app/core/data/repositories/repositories_impl.dart';
 import 'package:smoothy/app/core/domain/repositories/repositories.dart';
-import 'package:smoothy/app/core/domain/usecases/get_song.dart';
 import 'package:smoothy/app/core/domain/usecases/save_song.dart';
 import 'package:smoothy/core/network/network_info.dart';
 
@@ -19,7 +18,6 @@ Future<void> init() async {
   // Bloc
 
   // usecase
-  sl.registerLazySingleton(() => GetSong(repositories: sl()));
   sl.registerLazySingleton(() => SaveSong(repositories: sl()));
 
   // repositories

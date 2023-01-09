@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:smoothy/app/core/presentation/screens/play_list_screen/widgets/play_pause_button.dart';
 import 'package:smoothy/config/app_colors.dart';
@@ -71,7 +72,9 @@ class PlayerBoard extends StatelessWidget {
                       onPressed: () {}
                       , icon: const Icon(Icons.skip_previous, color: Colors.white)
                   ),
-                  PlayPauseButton(onTap: () {}),
+                  PlayPauseButton(onTap: () async {
+
+                  }),
                   IconButton(
                       onPressed: () {}
                       , icon: const Icon(Icons.skip_next, color: Colors.white)

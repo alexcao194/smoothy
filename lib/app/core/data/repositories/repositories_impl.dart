@@ -23,33 +23,6 @@ class RepositoriesImpl implements Repositories {
   final NetworkInfo networkInfo;
 
   @override
-  Future<Either<Failure, SongEntity>> getSong(String id) async {
-    // check if the song has been downloaded
-    // If so, get it in local storage,
-    if(await localData.hasSong(id)) {
-      try {
-        final song = await localData.getSong(id);
-        return Right(song);
-      } on LocalException {
-        return Left(LocalFailure());
-      }
-    } else {
-      // If not, check the network and get it online
-      if(await networkInfo.isConnected) {
-        try {
-          final song = await remoteData.getSong(id);
-          return Right(song);
-        } on ServerException {
-          return Left(ServerFailure());
-        }
-      } else {
-        // if there is no internet, throw Failure
-        return Left(NetworkFailure());
-      }
-    }
-  }
-
-  @override
   Future<Either<Failure, bool>> saveSong(SongModel song) {
     // TODO: implement saveSong
     throw UnimplementedError();
