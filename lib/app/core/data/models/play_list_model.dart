@@ -1,7 +1,7 @@
 import 'package:smoothy/app/core/domain/entities/play_list_entity.dart';
 
-class PlaylistModal extends PlayListEntity {
-  PlaylistModal({
+class PlaylistModel extends PlayListEntity {
+  PlaylistModel({
     required super.id,
     required super.cover,
     required super.name,
@@ -9,16 +9,16 @@ class PlaylistModal extends PlayListEntity {
     required this.listSongModal
   }) : super(listSong: listSongModal);
 
-  final List<ListSongModal> listSongModal;
+  final List<ListSongModel> listSongModal;
 
-  factory PlaylistModal.fromJson(Map<String, dynamic> json) {
-    final listSongModal = <ListSongModal>[];
+  factory PlaylistModel.fromJson(Map<String, dynamic> json) {
+    final listSongModal = <ListSongModel>[];
     if (json['list-song'] != null) {
       json['list-song'].forEach((v) {
-        listSongModal.add(ListSongModal.fromJson(v));
+        listSongModal.add(ListSongModel.fromJson(v));
       });
     }
-    return PlaylistModal(
+    return PlaylistModel(
       id : json['id'],
       cover : json['cover'],
       name : json['name'],
@@ -38,8 +38,8 @@ class PlaylistModal extends PlayListEntity {
   }
 }
 
-class ListSongModal extends ListSongEntity {
-  ListSongModal({
+class ListSongModel extends ListSongEntity {
+  ListSongModel({
     required super.id,
     required super.name,
     required super.author,
@@ -48,8 +48,8 @@ class ListSongModal extends ListSongEntity {
     required super.isLocal
   });
 
-  factory ListSongModal.fromJson(Map<String, dynamic> json) {
-    return ListSongModal(
+  factory ListSongModel.fromJson(Map<String, dynamic> json) {
+    return ListSongModel(
       id : json['id'],
       name : json['name'],
       author : json['author'],
