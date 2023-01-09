@@ -18,7 +18,7 @@ class SongModel extends SongEntity {
         cover: json['cover'],
         audio: json['audio'],
         author: json['author'],
-        isLocal: json['is_local']
+        isLocal: json['is-local']
     );
   }
 
@@ -29,7 +29,7 @@ class SongModel extends SongEntity {
     data['cover'] = cover;
     data['audio'] = audio;
     data['author'] = author;
-    data['is_local'] = isLocal;
+    data['is-local'] = isLocal;
     return data;
   }
 }
