@@ -8,7 +8,8 @@ class SongModel extends SongEntity {
     required super.cover,
     required super.audio,
     required super.author,
-    required super.isLocal
+    required super.isLocal,
+    required super.lenght
   });
 
   factory SongModel.fromJson(Map<String, dynamic> json) {
@@ -18,7 +19,8 @@ class SongModel extends SongEntity {
         cover: json['cover'],
         audio: json['audio'],
         author: json['author'],
-        isLocal: json['is-local']
+        isLocal: json['is-local'],
+        lenght: json['lenght']
     );
   }
 
@@ -30,6 +32,7 @@ class SongModel extends SongEntity {
     data['audio'] = audio;
     data['author'] = author;
     data['is-local'] = isLocal;
+    data['lenght'] = lenght;
     return data;
   }
 }

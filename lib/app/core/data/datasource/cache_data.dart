@@ -37,6 +37,7 @@ class CacheDataImpl implements CacheData {
           cover: AppPath.defaultSong,
           audio: '',
           author: 'Tác giả',
+          lenght: 0,
           isLocal: true
       ));
     }

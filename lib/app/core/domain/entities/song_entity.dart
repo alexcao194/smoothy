@@ -7,6 +7,7 @@ class SongEntity extends Equatable {
   final String audio;
   final String author;
   final bool isLocal;
+  final int lenght;
 
   const SongEntity({
     required this.id,
@@ -14,9 +15,10 @@ class SongEntity extends Equatable {
     required this.cover,
     required this.audio,
     required this.author,
-    required this.isLocal
+    required this.isLocal,
+    required this.lenght
   });
 
   @override
-  List<Object?> get props => [id, name, cover, audio, author];
+  List<Object?> get props => [id, name, cover, audio, author, lenght];
 }

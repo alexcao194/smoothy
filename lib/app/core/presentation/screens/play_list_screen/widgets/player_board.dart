@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smoothy/app/core/presentation/bloc/data/data_bloc.dart';
 import 'package:smoothy/app/core/presentation/bloc/player/player_bloc.dart';
 import 'package:smoothy/app/core/presentation/screens/play_list_screen/widgets/play_pause_button.dart';
+import 'package:smoothy/app/core/presentation/screens/play_list_screen/widgets/progress_bar.dart';
 import 'package:smoothy/config/app_colors.dart';
 
 class PlayerBoard extends StatelessWidget {
@@ -56,20 +57,7 @@ class PlayerBoard extends StatelessWidget {
               style: Theme.of(context).textTheme.caption!.copyWith(color: Colors.white),
             ),
             const SizedBox(height: 4.0),
-            SliderTheme(
-              data: SliderThemeData(
-                activeTrackColor: AppColors.track,
-                inactiveTrackColor: AppColors.inActiveTrack,
-                trackHeight: 2.0,
-                overlayShape: SliderComponentShape.noOverlay,
-                thumbShape: SliderComponentShape.noThumb,
-              ),
-              child: Slider(
-                  value: 0.24,
-                  onChanged: (value) {
-                    // TODO: implement Slider
-                  }),
-            ),
+            const ProgressBar(),
             BlocBuilder<DataBloc, DataState>(
               builder: (context, dataState) {
                 return Row(
@@ -143,3 +131,5 @@ class PlayerBoard extends StatelessWidget {
     BlocProvider.of<PlayerBloc>(context).add(PlayPauseEvent(state: playerState));
   }
 }
+
+

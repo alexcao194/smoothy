@@ -59,22 +59,26 @@ class RepositoriesImpl implements Repositories {
   }
 
   PlaylistModel _mergePlayList(PlaylistModel localPlayList, PlaylistModel remotePlayList) {
+    var listSong = <SongModel>[];
+    for (var song in localPlayList.listSongModal) {
+      listSong.add(song);
+    }
     for (var song in remotePlayList.listSongModal) {
-      if(!_findSong(song, localPlayList)) {
-        localPlayList.listSongModal.add(song);
+      if(!_findSong(song, listSong)) {
+        listSong.add(song);
       }
     }
     return PlaylistModel(
         id: localPlayList.id,
         cover: localPlayList.cover,
         name: localPlayList.name,
-        songCount: localPlayList.listSongModal.length,
-        listSongModal: localPlayList.listSongModal
+        songCount: listSong.length,
+        listSongModal: listSong
     );
   }
 
-  bool _findSong(SongModel song, PlaylistModel playlistModel) {
-    for(var element in playlistModel.listSongModal) {
+  bool _findSong(SongModel song, List<SongModel> listSong) {
+    for(var element in listSong) {
       if(song.id == element.id) {
         return true;
       }

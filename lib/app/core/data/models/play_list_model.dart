@@ -2,7 +2,7 @@ import 'package:smoothy/app/core/data/models/song_model.dart';
 import 'package:smoothy/app/core/domain/entities/play_list_entity.dart';
 
 class PlaylistModel extends PlayListEntity {
-  PlaylistModel({
+  const PlaylistModel({
     required super.id,
     required super.cover,
     required super.name,

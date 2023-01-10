@@ -15,13 +15,14 @@ class LocalDataImpl extends LocalData {
         cover: 'https://cdn.discordapp.com/attachments/960780341952544798/1061999001609711666/binztop-1643227243-6156-1643227859.jpg',
         name: "Tuyển tập Binz",
         songCount: 1,
-        listSongModal: <SongModel>[
-          const SongModel(
+        listSongModal: const <SongModel>[
+          SongModel(
               id: 'ZWBUA8B8',
               name: 'Bigcityboy',
               cover: 'https://cdn.discordapp.com/attachments/960780341952544798/1062000649937629204/Binz_-_Bigcityboi.jpg',
               audio: 'http://api.mp3.zing.vn/api/streaming/audio/ZWBUA8B8/320',
               author: 'Binz',
+              lenght: 201,
               isLocal: false
           )
         ]

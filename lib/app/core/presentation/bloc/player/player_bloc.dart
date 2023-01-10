@@ -38,7 +38,8 @@ class PlayerBloc extends Bloc<PlayerEvent, MPlayerState> {
       author: event.song.author,
       cover: event.song.cover,
       isLocal: event.song.isLocal,
-      name: event.song.name
+      name: event.song.name,
+      lenght: event.song.lenght
     )));
   }
 
