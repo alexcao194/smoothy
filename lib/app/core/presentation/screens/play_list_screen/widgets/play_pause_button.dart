@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PlayPauseButton extends StatefulWidget {
   const PlayPauseButton({Key? key, required this.onTap}) : super(key: key);
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   State<PlayPauseButton> createState() => _PlayPauseButtonState();
@@ -16,14 +16,14 @@ class _PlayPauseButtonState extends State<PlayPauseButton> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        if(controller!.isCompleted) {
-          controller!.reverse();
-        } else {
-          controller!.forward();
-        }
-        widget.onTap();
-      },
+      onTap: (widget.onTap != null) ? () {
+          if(controller!.isCompleted) {
+            controller!.reverse();
+          } else {
+            controller!.forward();
+          }
+          widget.onTap!();
+      } : null,
       child: AnimatedIcon(
           icon: AnimatedIcons.play_pause,
           color: Colors.white,

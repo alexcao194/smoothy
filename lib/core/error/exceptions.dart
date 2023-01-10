@@ -1,5 +1,9 @@
-class ServerException implements Exception {}
+class NotFoundSongServerException implements Exception {}
 
-class CacheException implements Exception {}
+class InternalServerException implements Exception {}
+
+class NoInternetException implements Exception {}
 
 class LocalException implements Exception {}
+
+class InternalException implements Exception {}

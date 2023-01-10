@@ -1,3 +1,4 @@
+import 'package:smoothy/app/core/data/models/song_model.dart';
 import 'package:smoothy/app/core/domain/entities/play_list_entity.dart';
 
 class PlaylistModel extends PlayListEntity {
@@ -9,13 +10,13 @@ class PlaylistModel extends PlayListEntity {
     required this.listSongModal
   }) : super(listSong: listSongModal);
 
-  final List<ListSongModel> listSongModal;
+  final List<SongModel> listSongModal;
 
   factory PlaylistModel.fromJson(Map<String, dynamic> json) {
-    final listSongModal = <ListSongModel>[];
+    final listSongModal = <SongModel>[];
     if (json['list-song'] != null) {
       json['list-song'].forEach((v) {
-        listSongModal.add(ListSongModel.fromJson(v));
+        listSongModal.add(SongModel.fromJson(v));
       });
     }
     return PlaylistModel(
@@ -34,39 +35,6 @@ class PlaylistModel extends PlayListEntity {
     data['name'] = name;
     data['song-count'] = songCount;
     data['list-song'] = listSongModal.map((v) => v.toJson()).toList();
-    return data;
-  }
-}
-
-class ListSongModel extends ListSongEntity {
-  ListSongModel({
-    required super.id,
-    required super.name,
-    required super.author,
-    required super.cover,
-    required super.audioLink,
-    required super.isLocal
-  });
-
-  factory ListSongModel.fromJson(Map<String, dynamic> json) {
-    return ListSongModel(
-      id : json['id'],
-      name : json['name'],
-      author : json['author'],
-      cover : json['cover'],
-      audioLink : json['audio-link'],
-      isLocal : json['is-local']
-    );
-  }
-
-   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['author'] = author;
-    data['cover'] = cover;
-    data['audio-link'] = audioLink;
-    data['is-local'] = isLocal;
     return data;
   }
 }

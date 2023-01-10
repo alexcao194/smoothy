@@ -1,14 +1,40 @@
 import 'package:equatable/equatable.dart';
 
 abstract class Failure extends Equatable {
+  const Failure({required this.message});
+
+  final String message;
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [message];
 }
 
-class ServerFailure extends Failure {}
+class NotFoundSongServerFailure extends Failure {
+  const NotFoundSongServerFailure() : super(
+    message: "There is no song with this id in server"
+  );
+}
 
-class CacheFailure extends Failure {}
+class InternalServerFailure extends Failure {
+  const InternalServerFailure() : super(
+    message: "The server is under maintenance "
+  );
+}
 
-class LocalFailure extends Failure {}
+class NoInternetFailure extends Failure {
+  const NoInternetFailure() : super(
+    message: "No internet, please connect and try again"
+  );
+}
 
-class NetworkFailure extends Failure {}
+class LocalFailure extends Failure {
+  const LocalFailure() : super(
+    message: "Local data error"
+  );
+}
+
+class InternalFailure extends Failure {
+  const InternalFailure() : super(
+    message: "There has been an error from the system, contact the administrator"
+  );
+}

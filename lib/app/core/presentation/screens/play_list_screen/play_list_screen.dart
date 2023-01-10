@@ -4,8 +4,8 @@ import 'package:smoothy/app/core/presentation/screens/play_list_screen/widgets/p
 import 'package:smoothy/config/app_colors.dart';
 
 class PlayListScreen extends StatelessWidget {
-  const PlayListScreen({Key? key}) : super(key: key);
-
+  PlayListScreen({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
