@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:smoothy/app/core/domain/entities/author_entity.dart';
 
 class SongEntity extends Equatable {
   final String id;
   final String name;
   final String cover;
   final String audio;
-  final String author;
+  final List<AuthorEntity> author;
   final bool isLocal;
   final int lenght;
 

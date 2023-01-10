@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smoothy/app/core/data/models/author_model.dart';
 import 'package:smoothy/app/core/data/models/song_model.dart';
 import 'package:smoothy/config/app_paths.dart';
 import 'package:smoothy/core/error/exceptions.dart';
@@ -36,7 +37,9 @@ class CacheDataImpl implements CacheData {
           name: 'Tên bài hát',
           cover: AppPath.defaultSong,
           audio: '',
-          author: 'Tác giả',
+          listAuthor: [
+            AuthorModel(id: 'author', name: 'Tác giả')
+          ],
           lenght: 0,
           isLocal: true
       ));

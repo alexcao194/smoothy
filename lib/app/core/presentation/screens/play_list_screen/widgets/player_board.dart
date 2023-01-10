@@ -6,6 +6,7 @@ import 'package:smoothy/app/core/presentation/bloc/player/player_bloc.dart';
 import 'package:smoothy/app/core/presentation/screens/play_list_screen/widgets/play_pause_button.dart';
 import 'package:smoothy/app/core/presentation/screens/play_list_screen/widgets/progress_bar.dart';
 import 'package:smoothy/config/app_colors.dart';
+import 'package:smoothy/core/services/format/author_format.dart';
 
 class PlayerBoard extends StatelessWidget {
   const PlayerBoard({
@@ -26,6 +27,7 @@ class PlayerBoard extends StatelessWidget {
   }
 
   Row buildPlayer(Size size, BuildContext context, PlayingState playerState) {
+
     return Row(
       children: [
         Padding(
@@ -53,7 +55,7 @@ class PlayerBoard extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white),
             ),
             Text(
-              playerState.song.author,
+              AuthorFormat.format(playerState.song),
               style: Theme.of(context).textTheme.caption!.copyWith(color: Colors.white),
             ),
             const SizedBox(height: 4.0),

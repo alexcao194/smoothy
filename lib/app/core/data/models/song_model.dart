@@ -1,3 +1,4 @@
+import 'package:smoothy/app/core/data/models/author_model.dart';
 import 'package:smoothy/app/core/domain/entities/song_entity.dart';
 
 class SongModel extends SongEntity {
@@ -7,20 +8,28 @@ class SongModel extends SongEntity {
     required super.name,
     required super.cover,
     required super.audio,
-    required super.author,
     required super.isLocal,
-    required super.lenght
-  });
+    required super.lenght,
+    required this.listAuthor
+  }) : super(author: listAuthor);
+
+  final List<AuthorModel> listAuthor;
 
   factory SongModel.fromJson(Map<String, dynamic> json) {
+    var listAuthor = <AuthorModel>[];
+    if (json['author'] != null) {
+      json['author'].forEach((v) {
+        listAuthor.add(AuthorModel.fromJson(v));
+      });
+    }
     return SongModel(
         id: json['id'],
         name: json['name'],
         cover: json['cover'],
         audio: json['audio'],
-        author: json['author'],
         isLocal: json['is-local'],
-        lenght: json['lenght']
+        lenght: json['lenght'],
+        listAuthor: listAuthor
     );
   }
 
@@ -30,7 +39,7 @@ class SongModel extends SongEntity {
     data['name'] = name;
     data['cover'] = cover;
     data['audio'] = audio;
-    data['author'] = author;
+    data['author'] = listAuthor.map((v) => v.toJson()).toList();
     data['is-local'] = isLocal;
     data['lenght'] = lenght;
     return data;

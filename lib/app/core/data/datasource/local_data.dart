@@ -1,3 +1,4 @@
+import 'package:smoothy/app/core/data/models/author_model.dart';
 import 'package:smoothy/app/core/data/models/play_list_model.dart';
 import 'package:smoothy/app/core/data/models/song_model.dart';
 
@@ -21,7 +22,9 @@ class LocalDataImpl extends LocalData {
               name: 'Bigcityboy',
               cover: 'https://cdn.discordapp.com/attachments/960780341952544798/1062000649937629204/Binz_-_Bigcityboi.jpg',
               audio: 'http://api.mp3.zing.vn/api/streaming/audio/ZWBUA8B8/320',
-              author: 'Binz',
+              listAuthor: [
+                AuthorModel(id: 'binz', name: 'Binz')
+              ],
               lenght: 201,
               isLocal: false
           )

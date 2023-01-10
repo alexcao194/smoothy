@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smoothy/app/core/presentation/bloc/data/data_bloc.dart';
 import 'package:smoothy/app/core/presentation/bloc/player/player_bloc.dart';
 import 'package:smoothy/config/app_colors.dart';
+import 'package:smoothy/core/services/format/author_format.dart';
 
 class PlayList extends StatelessWidget {
   const PlayList({Key? key}) : super(key: key);
@@ -64,7 +65,7 @@ class PlayList extends StatelessWidget {
                           style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white),
                         ),
                         Text(
-                          dataState.playList.listSong[index].author,
+                          AuthorFormat.format(dataState.playList.listSong[index]),
                           style: Theme.of(context).textTheme.caption!.copyWith(color: Colors.white),
                         ),
                       ],

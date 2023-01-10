@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:smoothy/app/core/data/models/author_model.dart';
 import 'package:smoothy/app/core/data/models/song_model.dart';
 import 'package:smoothy/app/core/domain/entities/song_entity.dart';
 import 'package:smoothy/app/core/domain/usecases/cache_song.dart';
@@ -35,7 +36,7 @@ class PlayerBloc extends Bloc<PlayerEvent, MPlayerState> {
     await cacheSong.call(Params(songModel: SongModel(
       id: event.song.id,
       audio: event.song.audio,
-      author: event.song.author,
+      listAuthor: List<AuthorModel>.from(event.song.author),
       cover: event.song.cover,
       isLocal: event.song.isLocal,
       name: event.song.name,
